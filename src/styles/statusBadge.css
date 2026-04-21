@@ -1,0 +1,53 @@
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.1px;
+  min-width: 104px;
+  justify-content: center;
+}
+
+.status-badge__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Paid */
+.status-badge--paid {
+  background-color: rgba(51, 214, 159, 0.06);
+  color: #33D69F;
+}
+.status-badge--paid .status-badge__dot {
+  background-color: #33D69F;
+}
+
+/* Pending */
+.status-badge--pending {
+  background-color: rgba(255, 143, 0, 0.06);
+  color: #FF8F00;
+}
+.status-badge--pending .status-badge__dot {
+  background-color: #FF8F00;
+}
+
+/* Draft */
+.status-badge--draft {
+  background-color: rgba(55, 59, 83, 0.06);
+  color: #373B53;
+}
+.status-badge--draft .status-badge__dot {
+  background-color: #373B53;
+}
+
+[data-theme="dark"] .status-badge--draft {
+  background-color: rgba(223, 227, 250, 0.06);
+  color: #DFE3FA;
+}
+[data-theme="dark"] .status-badge--draft .status-badge__dot {
+  background-color: #DFE3FA;
+}
