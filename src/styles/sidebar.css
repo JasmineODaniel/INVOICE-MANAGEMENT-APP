@@ -1,0 +1,132 @@
+.sidebar {
+  width: 103px;
+  min-height: 100vh;
+  background-color: #373B53;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  border-radius: 0 20px 20px 0;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .sidebar {
+  background-color: #1E2139;
+}
+
+.sidebar__logo {
+  width: 100%;
+  background-color: var(--purple);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 0;
+  border-radius: 0 20px 20px 0;
+  position: relative;
+}
+
+.sidebar__logo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background-color: var(--purple-light);
+  border-radius: 20px 0 0 0;
+}
+
+.sidebar__logo-icon {
+  position: relative;
+  z-index: 1;
+}
+
+.sidebar__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 32px;
+}
+
+.sidebar__theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.sidebar__theme-toggle:hover {
+  opacity: 0.7;
+}
+
+.sidebar__divider {
+  width: 100%;
+  height: 1px;
+  background-color: #494E6E;
+}
+
+.sidebar__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--purple);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.sidebar__avatar:hover {
+  border-color: var(--purple-light);
+}
+
+.sidebar__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tablet - sidebar becomes top bar */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    min-height: 72px;
+    height: 72px;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+    z-index: 100;
+  }
+
+  .sidebar__logo {
+    width: 72px;
+    height: 72px;
+    padding: 0;
+    border-radius: 0 20px 20px 0;
+    flex-shrink: 0;
+  }
+
+  .sidebar__bottom {
+    flex-direction: row;
+    padding: 0 24px 0 0;
+    gap: 16px;
+  }
+
+  .sidebar__divider {
+    width: 1px;
+    height: 100%;
+    min-height: 72px;
+  }
+}
