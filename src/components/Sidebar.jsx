@@ -45,7 +45,7 @@ function Sidebar() {
         <div className="sidebar__divider" />
 
         <div className="sidebar__avatar">
-          <img src="https://i.pravatar.cc/40" alt="User avatar" />
+          <img src="jjgirl.jpg" alt="User avatar" />
         </div>
       </div>
     </aside>
