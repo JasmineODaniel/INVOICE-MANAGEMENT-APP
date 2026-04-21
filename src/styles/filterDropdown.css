@@ -1,0 +1,101 @@
+.filter {
+  position: relative;
+}
+
+.filter__toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.25px;
+}
+
+.filter__toggle:hover .filter__label {
+  color: var(--text-secondary);
+}
+
+.filter__chevron {
+  transition: transform 0.3s ease;
+}
+
+.filter__chevron--open {
+  transform: rotate(180deg);
+}
+
+.filter__label--desktop {
+  display: inline;
+}
+
+.filter__dropdown {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 192px;
+  box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
+  z-index: 50;
+}
+
+[data-theme="dark"] .filter__dropdown {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.filter__option {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.25px;
+}
+
+.filter__checkbox {
+  display: none;
+}
+
+.filter__checkmark {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  border: 1px solid var(--light-grey);
+  background-color: var(--bg-input);
+  flex-shrink: 0;
+  transition: background-color 0.2s, border-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter__checkbox:checked + .filter__checkmark {
+  background-color: var(--purple);
+  border-color: var(--purple);
+}
+
+.filter__checkbox:checked + .filter__checkmark::after {
+  content: '';
+  width: 10px;
+  height: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l2.667 2.667L9 1' stroke='white' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@media (max-width: 480px) {
+  .filter__label--desktop {
+    display: none;
+  }
+}
