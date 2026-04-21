@@ -76,7 +76,7 @@
   flex-shrink: 0;
   transition: background-color 0.2s, border-color 0.2s;
   display: flex;
-  align-items: center;
+  align-items: center; 
   justify-content: center;
 }
 
