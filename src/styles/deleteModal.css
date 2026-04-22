@@ -1,7 +1,7 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 .modal-overlay {
+.modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.30);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,26 +47,49 @@
   font-weight: 700;
   cursor: pointer;
   border: none;
-  transition: background-color 0.2s;
   letter-spacing: -0.25px;
+  transition: background-color 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .modal__btn--cancel {
-  background-color: var(--bg-table-head);
-  color: var(--text-secondary);
+  background-color: #F9FAFE;
+  color: #7E88C3;
 }
 
 .modal__btn--cancel:hover {
-  background-color: var(--light-grey);
+  background-color: #DFE3FA;
+}
+
+[data-theme="dark"] .modal__btn--cancel {
+  background-color: #252945;
+  color: #DFE3FA;
+}
+
+[data-theme="dark"] .modal__btn--cancel:hover {
+  background-color: #1E2139;
 }
 
 .modal__btn--delete {
-  background-color: var(--red);
-  color: white;
+  background-color: #EC5757 !important;
+  color: white !important;
 }
 
 .modal__btn--delete:hover {
-  background-color: var(--red-light);
+  background-color: #FF9797 !important;
+  color: white !important;
+}
+
+.modal__btn--delete:focus {
+  background-color: #EC5757 !important;
+  color: white !important;
+  outline: none;
+}
+
+.modal__btn--delete:active {
+  background-color: #EC5757 !important;
+  color: white !important;
 }
 
 @media (max-width: 480px) {
