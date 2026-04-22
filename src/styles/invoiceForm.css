@@ -46,22 +46,30 @@
 
 .form-panel__scroll {
   flex: 1;
-  overflow-y: auto;
+  overflow-y: scroll;
   padding: 36px 48px;
   display: flex;
   flex-direction: column;
   gap: 40px;
+  min-height: 0;
 }
 
 .form-panel__scroll::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
+
 .form-panel__scroll::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--bg-page);
+  border-radius: 4px;
 }
+
 .form-panel__scroll::-webkit-scrollbar-thumb {
   background: var(--light-grey);
-  border-radius: 3px;
+  border-radius: 4px;
+}
+
+.form-panel__scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-grey);
 }
 
 .form-section {
