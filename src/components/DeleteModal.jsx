@@ -54,7 +54,7 @@ function DeleteModal({ invoiceId, onConfirm, onCancel }) {
             ref={cancelBtnRef}
             type="button"
           >
-            Cancel
+            Cancel 
           </button>
           <button
             className="modal__btn modal__btn--delete"
