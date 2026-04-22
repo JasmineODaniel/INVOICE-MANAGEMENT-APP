@@ -3,13 +3,12 @@ import '../styles/deleteModal.css'
 
 function DeleteModal({ invoiceId, onConfirm, onCancel }) {
   const cancelBtnRef = useRef(null)
+  const modalRef = useRef(null)
 
-  // Focus the cancel button when modal opens
   useEffect(() => {
     cancelBtnRef.current?.focus()
   }, [])
 
-  // Close on ESC key
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onCancel()
@@ -18,26 +17,17 @@ function DeleteModal({ invoiceId, onConfirm, onCancel }) {
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [onCancel])
 
-  // Trap focus inside modal
   const handleTabKey = (e) => {
     if (e.key !== 'Tab') return
     const focusable = modalRef.current.querySelectorAll('button')
     const first = focusable[0]
     const last = focusable[focusable.length - 1]
     if (e.shiftKey) {
-      if (document.activeElement === first) {
-        e.preventDefault()
-        last.focus()
-      }
+      if (document.activeElement === first) { e.preventDefault(); last.focus() }
     } else {
-      if (document.activeElement === last) {
-        e.preventDefault()
-        first.focus()
-      }
+      if (document.activeElement === last) { e.preventDefault(); first.focus() }
     }
   }
-
-  const modalRef = useRef(null)
 
   return (
     <div
@@ -55,20 +45,21 @@ function DeleteModal({ invoiceId, onConfirm, onCancel }) {
       >
         <h2 className="modal__title" id="modal-title">Confirm Deletion</h2>
         <p className="modal__text">
-          Are you sure you want to delete invoice #{invoiceId}?
-          This action cannot be undone.
+          Are you sure you want to delete invoice #{invoiceId}? This action cannot be undone.
         </p>
         <div className="modal__actions">
           <button
             className="modal__btn modal__btn--cancel"
             onClick={onCancel}
             ref={cancelBtnRef}
+            type="button"
           >
             Cancel
           </button>
           <button
             className="modal__btn modal__btn--delete"
             onClick={onConfirm}
+            type="button"
           >
             Delete
           </button>
@@ -78,4 +69,4 @@ function DeleteModal({ invoiceId, onConfirm, onCancel }) {
   )
 }
 
-export default DeleteModal
+export default DeleteModal  
