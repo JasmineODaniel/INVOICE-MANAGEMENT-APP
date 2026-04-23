@@ -96,7 +96,7 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .sidebar {
     width: 100%;
     min-height: 72px;
@@ -129,5 +129,5 @@
     height: 100%;
     min-height: 72px;
   }
-} 
+}
 
