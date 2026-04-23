@@ -38,8 +38,8 @@ function InvoiceList() {
                   fill="#7C5DFA"/>
               </svg>
             </span>
-            New <span style={{display: 'none'}} className="full-text">Invoice</span>
-            Invoice
+            <span className="btn-new-invoice__text-desktop">New Invoice</span>
+            <span className="btn-new-invoice__text-mobile">New</span>
           </button>
         </div>
       </div>
