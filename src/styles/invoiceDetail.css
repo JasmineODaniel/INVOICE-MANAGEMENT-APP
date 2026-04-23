@@ -5,7 +5,6 @@
   padding-bottom: 48px;
 }
 
-/* ---- Go Back ---- */
 .invoice-detail__back {
   display: flex;
   align-items: center;
@@ -27,10 +26,9 @@
   color: var(--text-secondary);
 }
 
-/* ---- Status Bar ---- */
 .invoice-detail__status-bar {
   background-color: var(--bg-card);
-  border-radius: var(--radius-card);
+  border-radius: 8px;
   padding: 20px 32px;
   display: flex;
   justify-content: space-between;
@@ -55,7 +53,7 @@
   align-items: center;
 }
 
-/* ---- Action Buttons ---- */
+/* ---- Buttons ---- */
 .detail-btn {
   padding: 16px 24px;
   border-radius: 24px;
@@ -64,50 +62,50 @@
   font-weight: 700;
   cursor: pointer;
   border: none;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
   letter-spacing: -0.25px;
 }
 
 .detail-btn--edit {
-  background-color: var(--bg-table-head);
-  color: var(--text-secondary);
+  background-color: #F9FAFE;
+  color: #7E88C3;
 }
 
 .detail-btn--edit:hover {
-  background-color: var(--light-grey);
+  background-color: #DFE3FA;
 }
 
 [data-theme="dark"] .detail-btn--edit {
-  background-color: var(--dark-navy-2);
-  color: var(--blue-grey);
+  background-color: #252945;
+  color: #DFE3FA;
 }
 
 [data-theme="dark"] .detail-btn--edit:hover {
-  background-color: var(--dark-navy);
+  background-color: #1E2139;
 }
 
 .detail-btn--delete {
-  background-color: var(--red);
+  background-color: #EC5757;
   color: white;
 }
 
 .detail-btn--delete:hover {
-  background-color: var(--red-light);
+  background-color: #FF9797;
 }
 
 .detail-btn--paid {
-  background-color: var(--purple);
+  background-color: #7C5DFA;
   color: white;
 }
 
 .detail-btn--paid:hover {
-  background-color: var(--purple-light);
+  background-color: #9277FF;
 }
 
-/* ---- Invoice Body ---- */
+/* ---- Body ---- */
 .invoice-detail__body {
   background-color: var(--bg-card);
-  border-radius: var(--radius-card);
+  border-radius: 8px;
   padding: 48px;
   box-shadow: var(--shadow);
   display: flex;
@@ -115,7 +113,6 @@
   gap: 40px;
 }
 
-/* ---- Top ---- */
 .invoice-detail__top {
   display: flex;
   justify-content: space-between;
@@ -150,7 +147,7 @@
   line-height: 18px;
 }
 
-/* ---- Meta Grid ---- */
+/* ---- Meta ---- */
 .invoice-detail__meta {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -226,15 +223,19 @@
 .text-center { text-align: center; }
 .text-right { text-align: right; }
 
-/* ---- Amount Due ---- */
+/* ---- Total ---- */
 .invoice-detail__total {
-  background-color: var(--bg-total);
+  background-color: #373B53;
   border-radius: 0 0 8px 8px;
   padding: 24px 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: -40px;
+}
+
+[data-theme="dark"] .invoice-detail__total {
+  background-color: #0C0E16;
 }
 
 .invoice-detail__total-label {
@@ -254,7 +255,6 @@
   display: none;
 }
 
-/* ---- Not Found ---- */
 .invoice-detail__not-found {
   display: flex;
   flex-direction: column;

@@ -39,6 +39,7 @@
   --text-primary:  #0C0E16;
   --text-secondary:#888EB0;
   --text-muted:    #7E88C3;
+  --blue-grey:     #7E88C3;
   --text-on-dark:  #FFFFFF;
 
   /* Item list table row */
@@ -66,8 +67,9 @@
   --bg-total:      #0C0E16;
 
   --text-primary:  #FFFFFF;
-  --text-secondary:#DFE3FA;
+  --text-secondary:#888EB0;
   --text-muted:    #DFE3FA;
+  --blue-grey:     #7E88C3;
 
   --border-focus:  #7C5DFA;
   --shadow: 0px 10px 10px -10px rgba(0,0,0,0.25);
@@ -114,7 +116,7 @@ h3 {
   letter-spacing: -0.25px;
 }
 
-p, span, label {
+p, label {
   font-size: 13px;
   font-weight: 500;
   line-height: 18px;
@@ -131,8 +133,9 @@ p, span, label {
 
 .main-content {
   flex: 1;
-  padding: 72px 48px;
-  max-width: 780px;
+  width: 100%;
+  max-width: 730px;
+  padding: 72px 0 48px;
   margin: 0 auto;
 }
 
@@ -145,6 +148,7 @@ p, span, label {
   }
 
   .main-content {
+    max-width: 730px;
     padding: 32px 24px;
   }
 }
