@@ -4,7 +4,7 @@ import { sampleInvoices } from '../data/sampleInvoices'
 const InvoiceContext = createContext()
 const INVOICES_STORAGE_KEY = 'invoices'
 const INVOICES_VERSION_KEY = 'invoices_version'
-const DESIGN_DATA_VERSION = 'design-2021-v1'
+const DESIGN_DATA_VERSION = 'design-2021-v2'
 
 export function InvoiceProvider({ children }) {
   const [invoices, setInvoices] = useState(() => {
