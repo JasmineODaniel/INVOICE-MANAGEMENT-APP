@@ -1,4 +1,4 @@
-import { useTheme } from '../context/ThemeContext'
+﻿import { useTheme } from '../context/ThemeContext'
 import '../styles/sidebar.css'
 
 function Sidebar() {
@@ -38,7 +38,7 @@ function Sidebar() {
         <div className="sidebar__divider" />
 
         <div className="sidebar__avatar">
-          <img src="jjgirl.jpg" alt="User avatar" />
+<img src="ivan.png" alt="User avatar" />
         </div>
       </div>
     </aside>
@@ -46,3 +46,4 @@ function Sidebar() {
 }
 
 export default Sidebar
+
