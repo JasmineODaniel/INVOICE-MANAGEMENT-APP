@@ -27,6 +27,7 @@ A fully functional invoice management application built with React + Vite. Creat
 - **CSS Custom Properties** — theming and design tokens
 - **LocalStorage** — data persistence
 - **Google Fonts** — League Spartan typeface
+```
 src/
 ├── components/
 │   ├── Sidebar.jsx          # Navigation sidebar with theme toggle
@@ -44,13 +45,13 @@ src/
 │   └── InvoiceContext.jsx   # Invoice CRUD global state
 ├── styles/
 │   ├── global.css           # CSS variables and base styles
-│   ├── sidebar.css
-│   ├── invoiceList.css
-│   ├── invoiceDetail.css
-│   ├── invoiceForm.css
-│   ├── statusBadge.css
-│   ├── deleteModal.css
-│   └── filterDropdown.css
+│   ├── sidebar.css          # Sidebar styles
+│   ├── invoiceList.css      # Invoice list page styles
+│   ├── invoiceDetail.css    # Invoice detail page styles
+│   ├── invoiceForm.css      # Form panel and input styles
+│   ├── statusBadge.css      # Badge color styles
+│   ├── deleteModal.css      # Modal overlay styles
+│   └── filterDropdown.css   # Filter checkbox styles
 ├── utils/
 │   └── generateId.js        # ID generator, date and currency formatters
 ├── data/
