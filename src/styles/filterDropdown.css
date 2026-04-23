@@ -85,7 +85,7 @@
   border: 1px solid #DFE3FA;
   background-color: var(--bg-input);
   display: flex;
-  align-items: center;
+  align-items: center; 
   justify-content: center;
   transition: background-color 0.15s ease, border-color 0.15s ease;
 }
@@ -137,8 +137,3 @@
     display: none;
   }
 
-  .filter__dropdown {
-    left: 0;
-    transform: none;
-  }
-}

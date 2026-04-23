@@ -8,14 +8,7 @@ function Sidebar() {
     <aside className="sidebar">
       <div className="sidebar__logo">
         <div className="sidebar__logo-icon">
-          <svg width="28" height="26" viewBox="0 0 28 26" fill="none">
-            <path fillRule="evenodd" clipRule="evenodd"
-              d="M20.513 0C24.965 2.309 28 6.933 28 12.277C28 17.619 24.965 22.243 20.513 24.553L14 12.277L20.513 0Z"
-              fill="white" fillOpacity="0.5"/>
-            <path fillRule="evenodd" clipRule="evenodd"
-              d="M7.487 24.552C3.035 22.243 0 17.619 0 12.276C0 6.933 3.035 2.309 7.487 0L14 12.276L7.487 24.552Z"
-              fill="white"/>
-          </svg>
+         <img src="logo.png" alt="Invoice app logo" />
         </div>
       </div>
 
@@ -25,7 +18,7 @@ function Sidebar() {
           onClick={toggleTheme}
           aria-label="Toggle theme"
         >
-          {theme === 'light' ? (
+          {theme === 'dark' ? (
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path fillRule="evenodd" clipRule="evenodd"
                 d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 14a6 6 0 110-12 6 6 0 010 12z"
@@ -45,7 +38,7 @@ function Sidebar() {
         <div className="sidebar__divider" />
 
         <div className="sidebar__avatar">
-          <img src="https://i.pravatar.cc/40" alt="User avatar" />
+          <img src="jjgirl.jpg" alt="User avatar" />
         </div>
       </div>
     </aside>

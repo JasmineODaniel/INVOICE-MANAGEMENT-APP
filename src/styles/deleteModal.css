@@ -81,7 +81,7 @@
   color: white !important;
 }
 
-.modal__btn--delete:focus {
+.modal__btn--delete:focus { 
   background-color: #EC5757 !important;
   color: white !important;
   outline: none;

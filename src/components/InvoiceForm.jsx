@@ -6,10 +6,10 @@ import '../styles/invoiceForm.css'
 const emptyItem = { name: '', qty: 1, price: 0, total: 0 }
 
 const defaultForm = {
-  senderStreet: '',
-  senderCity: '',
-  senderPostCode: '',
-  senderCountry: '',
+  senderStreet: '19 Union Terrace',
+  senderCity: 'London',
+  senderPostCode: 'E1 3EZ',
+  senderCountry: 'United Kingdom',
   clientName: '',
   clientEmail: '',
   clientStreet: '',
@@ -25,7 +25,7 @@ const defaultForm = {
 function InvoiceForm({ onClose, invoiceToEdit }) {
   const { addInvoice, updateInvoice } = useInvoices()
   const isEditing = !!invoiceToEdit
-  const overlayRef = useRef(null)
+  const modalRef = useRef(null)
 
   const [form, setForm] = useState(() => {
     if (invoiceToEdit) {
@@ -51,14 +51,12 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
 
   const [errors, setErrors] = useState({})
 
-  // Close on ESC
   useEffect(() => {
     const handleKey = (e) => { if (e.key === 'Escape') onClose() }
     document.addEventListener('keydown', handleKey)
     return () => document.removeEventListener('keydown', handleKey)
   }, [onClose])
 
-  // Prevent body scroll when form is open
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     return () => { document.body.style.overflow = '' }
@@ -82,17 +80,11 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
   }
 
   const addItem = () => {
-    setForm(prev => ({
-      ...prev,
-      items: [...prev.items, { ...emptyItem }]
-    }))
+    setForm(prev => ({ ...prev, items: [...prev.items, { ...emptyItem }] }))
   }
 
   const removeItem = (index) => {
-    setForm(prev => ({
-      ...prev,
-      items: prev.items.filter((_, i) => i !== index)
-    }))
+    setForm(prev => ({ ...prev, items: prev.items.filter((_, i) => i !== index) }))
   }
 
   const validate = () => {
@@ -151,51 +143,46 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
 
   const handleSaveAsDraft = () => {
     const invoice = buildInvoice('draft')
-    if (isEditing) {
-      updateInvoice(invoiceToEdit.id, invoice)
-    } else {
-      addInvoice(invoice)
-    }
+    if (isEditing) { updateInvoice(invoiceToEdit.id, invoice) } else { addInvoice(invoice) }
     onClose()
   }
 
   const handleSubmit = () => {
     const newErrors = validate()
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors)
-      return
-    }
+    if (Object.keys(newErrors).length > 0) { setErrors(newErrors); return }
     const invoice = buildInvoice(isEditing ? invoiceToEdit.status : 'pending')
-    if (isEditing) {
-      updateInvoice(invoiceToEdit.id, invoice)
-    } else {
-      addInvoice(invoice)
-    }
+    if (isEditing) { updateInvoice(invoiceToEdit.id, invoice) } else { addInvoice(invoice) }
     onClose()
   }
 
-  const grandTotal = form.items.reduce((sum, item) => sum + item.total, 0)
-
   return (
-    <div className="form-overlay" ref={overlayRef}>
-      <div className="form-panel" role="dialog" aria-label={isEditing ? 'Edit Invoice' : 'New Invoice'}>
+    <div className="form-overlay">
+      {/* Transparent dark film on the right side */}
+      <div className="form-overlay__backdrop" onClick={onClose} />
+
+      <div
+        className="form-panel"
+        role="dialog"
+        aria-label={isEditing ? 'Edit Invoice' : 'New Invoice'}
+        ref={modalRef}
+      >
         <div className="form-panel__inner">
           <h2 className="form-panel__title">
-            {isEditing ? (
-              <>Edit <span className="form-panel__id"># {invoiceToEdit.id}</span></>
-            ) : 'New Invoice'}
+            {isEditing
+              ? <><span style={{color: 'var(--text-muted)'}}>#</span>{invoiceToEdit.id}</>
+              : 'New Invoice'
+            }
           </h2>
 
           <div className="form-panel__scroll">
+
             {/* Bill From */}
             <fieldset className="form-section">
               <legend className="form-section__legend">Bill From</legend>
               <div className="form-group form-group--full">
                 <label className="form-label" htmlFor="senderStreet">
                   Street Address
-                  {errors.senderStreet && (
-                    <span className="form-error">{errors.senderStreet}</span>
-                  )}
+                  {errors.senderStreet && <span className="form-error">{errors.senderStreet}</span>}
                 </label>
                 <input
                   id="senderStreet"
@@ -204,48 +191,24 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
                   onChange={e => handleChange('senderStreet', e.target.value)}
                 />
               </div>
-              <div className="form-group form-row">
+              <div className="form-row">
                 <div className="form-group">
                   <label className="form-label" htmlFor="senderCity">
-                    City
-                    {errors.senderCity && (
-                      <span className="form-error">{errors.senderCity}</span>
-                    )}
+                    City {errors.senderCity && <span className="form-error">{errors.senderCity}</span>}
                   </label>
-                  <input
-                    id="senderCity"
-                    className={`form-input ${errors.senderCity ? 'form-input--error' : ''}`}
-                    value={form.senderCity}
-                    onChange={e => handleChange('senderCity', e.target.value)}
-                  />
+                  <input id="senderCity" className={`form-input ${errors.senderCity ? 'form-input--error' : ''}`} value={form.senderCity} onChange={e => handleChange('senderCity', e.target.value)} />
                 </div>
                 <div className="form-group">
                   <label className="form-label" htmlFor="senderPostCode">
-                    Post Code
-                    {errors.senderPostCode && (
-                      <span className="form-error">{errors.senderPostCode}</span>
-                    )}
+                    Post Code {errors.senderPostCode && <span className="form-error">{errors.senderPostCode}</span>}
                   </label>
-                  <input
-                    id="senderPostCode"
-                    className={`form-input ${errors.senderPostCode ? 'form-input--error' : ''}`}
-                    value={form.senderPostCode}
-                    onChange={e => handleChange('senderPostCode', e.target.value)}
-                  />
+                  <input id="senderPostCode" className={`form-input ${errors.senderPostCode ? 'form-input--error' : ''}`} value={form.senderPostCode} onChange={e => handleChange('senderPostCode', e.target.value)} />
                 </div>
                 <div className="form-group">
                   <label className="form-label" htmlFor="senderCountry">
-                    Country
-                    {errors.senderCountry && (
-                      <span className="form-error">{errors.senderCountry}</span>
-                    )}
+                    Country {errors.senderCountry && <span className="form-error">{errors.senderCountry}</span>}
                   </label>
-                  <input
-                    id="senderCountry"
-                    className={`form-input ${errors.senderCountry ? 'form-input--error' : ''}`}
-                    value={form.senderCountry}
-                    onChange={e => handleChange('senderCountry', e.target.value)}
-                  />
+                  <input id="senderCountry" className={`form-input ${errors.senderCountry ? 'form-input--error' : ''}`} value={form.senderCountry} onChange={e => handleChange('senderCountry', e.target.value)} />
                 </div>
               </div>
             </fieldset>
@@ -255,97 +218,48 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
               <legend className="form-section__legend">Bill To</legend>
               <div className="form-group form-group--full">
                 <label className="form-label" htmlFor="clientName">
-                  Client's Name
-                  {errors.clientName && (
-                    <span className="form-error">{errors.clientName}</span>
-                  )}
+                  Client's Name {errors.clientName && <span className="form-error">{errors.clientName}</span>}
                 </label>
-                <input
-                  id="clientName"
-                  className={`form-input ${errors.clientName ? 'form-input--error' : ''}`}
-                  value={form.clientName}
-                  onChange={e => handleChange('clientName', e.target.value)}
-                />
+                <input id="clientName" className={`form-input ${errors.clientName ? 'form-input--error' : ''}`} value={form.clientName} onChange={e => handleChange('clientName', e.target.value)} placeholder="e.g. Alex Grim" />
               </div>
               <div className="form-group form-group--full">
                 <label className="form-label" htmlFor="clientEmail">
-                  Client's Email
-                  {errors.clientEmail && (
-                    <span className="form-error">{errors.clientEmail}</span>
-                  )}
+                  Client's Email {errors.clientEmail && <span className="form-error">{errors.clientEmail}</span>}
                 </label>
-                <input
-                  id="clientEmail"
-                  type="email"
-                  className={`form-input ${errors.clientEmail ? 'form-input--error' : ''}`}
-                  value={form.clientEmail}
-                  onChange={e => handleChange('clientEmail', e.target.value)}
-                />
+                <input id="clientEmail" type="email" className={`form-input ${errors.clientEmail ? 'form-input--error' : ''}`} value={form.clientEmail} onChange={e => handleChange('clientEmail', e.target.value)} placeholder="e.g. alexgrim@mail.com" />
               </div>
               <div className="form-group form-group--full">
                 <label className="form-label" htmlFor="clientStreet">
-                  Street Address
-                  {errors.clientStreet && (
-                    <span className="form-error">{errors.clientStreet}</span>
-                  )}
+                  Street Address {errors.clientStreet && <span className="form-error">{errors.clientStreet}</span>}
                 </label>
-                <input
-                  id="clientStreet"
-                  className={`form-input ${errors.clientStreet ? 'form-input--error' : ''}`}
-                  value={form.clientStreet}
-                  onChange={e => handleChange('clientStreet', e.target.value)}
-                />
+                <input id="clientStreet" className={`form-input ${errors.clientStreet ? 'form-input--error' : ''}`} value={form.clientStreet} onChange={e => handleChange('clientStreet', e.target.value)} placeholder="e.g. 84 Church Way" />
               </div>
-              <div className="form-group form-row">
+              <div className="form-row">
                 <div className="form-group">
                   <label className="form-label" htmlFor="clientCity">
-                    City
-                    {errors.clientCity && (
-                      <span className="form-error">{errors.clientCity}</span>
-                    )}
+                    City {errors.clientCity && <span className="form-error">{errors.clientCity}</span>}
                   </label>
-                  <input
-                    id="clientCity"
-                    className={`form-input ${errors.clientCity ? 'form-input--error' : ''}`}
-                    value={form.clientCity}
-                    onChange={e => handleChange('clientCity', e.target.value)}
-                  />
+                  <input id="clientCity" className={`form-input ${errors.clientCity ? 'form-input--error' : ''}`} value={form.clientCity} onChange={e => handleChange('clientCity', e.target.value)} placeholder="e.g. Bradford" />
                 </div>
                 <div className="form-group">
                   <label className="form-label" htmlFor="clientPostCode">
-                    Post Code
-                    {errors.clientPostCode && (
-                      <span className="form-error">{errors.clientPostCode}</span>
-                    )}
+                    Post Code {errors.clientPostCode && <span className="form-error">{errors.clientPostCode}</span>}
                   </label>
-                  <input
-                    id="clientPostCode"
-                    className={`form-input ${errors.clientPostCode ? 'form-input--error' : ''}`}
-                    value={form.clientPostCode}
-                    onChange={e => handleChange('clientPostCode', e.target.value)}
-                  />
+                  <input id="clientPostCode" className={`form-input ${errors.clientPostCode ? 'form-input--error' : ''}`} value={form.clientPostCode} onChange={e => handleChange('clientPostCode', e.target.value)} placeholder="e.g. BD1 9PB" />
                 </div>
                 <div className="form-group">
                   <label className="form-label" htmlFor="clientCountry">
-                    Country
-                    {errors.clientCountry && (
-                      <span className="form-error">{errors.clientCountry}</span>
-                    )}
+                    Country {errors.clientCountry && <span className="form-error">{errors.clientCountry}</span>}
                   </label>
-                  <input
-                    id="clientCountry"
-                    className={`form-input ${errors.clientCountry ? 'form-input--error' : ''}`}
-                    value={form.clientCountry}
-                    onChange={e => handleChange('clientCountry', e.target.value)}
-                  />
+                  <input id="clientCountry" className={`form-input ${errors.clientCountry ? 'form-input--error' : ''}`} value={form.clientCountry} onChange={e => handleChange('clientCountry', e.target.value)} placeholder="e.g. United Kingdom" />
                 </div>
               </div>
             </fieldset>
 
             {/* Invoice Details */}
             <fieldset className="form-section">
-              <legend className="form-section__legend" style={{opacity: 0, height: 0}}>Invoice Details</legend>
-              <div className="form-row">
+              <legend className="form-section__legend" style={{opacity:0, height:0, margin:0, padding:0}}>Invoice Details</legend>
+              <div className="form-row form-row--two">
                 <div className="form-group">
                   <label className="form-label" htmlFor="invoiceDate">Invoice Date</label>
                   <input
@@ -374,16 +288,14 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
               </div>
               <div className="form-group form-group--full">
                 <label className="form-label" htmlFor="description">
-                  Project Description
-                  {errors.description && (
-                    <span className="form-error">{errors.description}</span>
-                  )}
+                  Project Description {errors.description && <span className="form-error">{errors.description}</span>}
                 </label>
                 <input
                   id="description"
                   className={`form-input ${errors.description ? 'form-input--error' : ''}`}
                   value={form.description}
                   onChange={e => handleChange('description', e.target.value)}
+                  placeholder="e.g. Graphic Design"
                 />
               </div>
             </fieldset>
@@ -391,9 +303,7 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
             {/* Item List */}
             <div className="form-items">
               <h3 className="form-items__title">Item List</h3>
-              {errors.items && (
-                <p className="form-error form-error--block">{errors.items}</p>
-              )}
+              {errors.items && <p className="form-error form-error--block">{errors.items}</p>}
 
               <div className="form-items__header">
                 <span>Item Name</span>
@@ -440,9 +350,7 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
                   </div>
                   <div className="form-item-total">
                     <span className="form-label form-label--mobile-only">Total</span>
-                    <span className="form-item-total__value">
-                      £ {item.total.toFixed(2)}
-                    </span>
+                    <span className="form-item-total__value">£ {item.total.toFixed(2)}</span>
                   </div>
                   <button
                     type="button"
@@ -451,59 +359,37 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
                     aria-label={`Remove ${item.name || 'item'}`}
                   >
                     <svg width="13" height="16" viewBox="0 0 13 16" fill="none">
-                      <path fillRule="evenodd" clipRule="evenodd"
-                        d="M8.47 0l.975 1H13v2H0V1h3.53L4.5 0h3.97zM1 14a2 2 0 002 2h7a2 2 0 002-2V4H1v10z"
-                        fill="#888EB0"/>
+                      <path fillRule="evenodd" clipRule="evenodd" d="M8.47 0l.975 1H13v2H0V1h3.53L4.5 0h3.97zM1 14a2 2 0 002 2h7a2 2 0 002-2V4H1v10z" fill="#888EB0"/>
                     </svg>
                   </button>
                 </div>
               ))}
 
-              <button
-                type="button"
-                className="form-add-item"
-                onClick={addItem}
-              >
+              <button type="button" className="form-add-item" onClick={addItem}>
                 + Add New Item
               </button>
             </div>
           </div>
 
-          {/* Footer Actions */}
+          {/* Footer */}
           <div className="form-panel__footer">
             {!isEditing && (
-              <button
-                type="button"
-                className="form-btn form-btn--discard"
-                onClick={onClose}
-              >
+              <button type="button" className="form-btn form-btn--discard" onClick={onClose}>
                 Discard
               </button>
             )}
             {isEditing && (
-              <button
-                type="button"
-                className="form-btn form-btn--cancel"
-                onClick={onClose}
-              >
+              <button type="button" className="form-btn form-btn--cancel" onClick={onClose}>
                 Cancel
               </button>
             )}
             <div className="form-panel__footer-right">
               {!isEditing && (
-                <button
-                  type="button"
-                  className="form-btn form-btn--draft"
-                  onClick={handleSaveAsDraft}
-                >
+                <button type="button" className="form-btn form-btn--draft" onClick={handleSaveAsDraft}>
                   Save as Draft
                 </button>
               )}
-              <button
-                type="button"
-                className="form-btn form-btn--submit"
-                onClick={handleSubmit}
-              >
+              <button type="button" className="form-btn form-btn--submit" onClick={handleSubmit}>
                 {isEditing ? 'Save Changes' : 'Save & Send'}
               </button>
             </div>
