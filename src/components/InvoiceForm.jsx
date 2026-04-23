@@ -331,8 +331,6 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
 
           <div className="form-panel__scroll">
             <div className="form-panel__content">
-
-            {/* Bill From */}
             <fieldset className="form-section">
               <legend className="form-section__legend">Bill From</legend>
               <div className="form-group form-group--full">
@@ -357,8 +355,6 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
                 </div>
               </div>
             </fieldset>
-
-            {/* Bill To */}
             <fieldset className="form-section">
               <legend className="form-section__legend">Bill To</legend>
               <div className="form-group form-group--full">
@@ -388,8 +384,6 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
                 </div>
               </div>
             </fieldset>
-
-            {/* Invoice Details */}
             <fieldset className="form-section">
               <legend className="form-section__legend" style={{opacity:0,height:0,margin:0,padding:0,float:'none'}}>Invoice Details</legend>
               <div className="form-row form-row--two">
@@ -422,8 +416,6 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
                 />
               </div>
             </fieldset>
-
-            {/* Item List */}
             <div className="form-items">
               <h3 className="form-items__title">Item List</h3>
               {errors.items && <p className="form-error form-error--block">{errors.items}</p>}
@@ -489,8 +481,6 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
             </div>
 
           </div>
-
-          {/* Footer */}
           <div className="form-panel__footer">
             {!isEditing && (
               <button type="button" className="form-btn form-btn--discard" onClick={onClose}>Discard</button>
@@ -515,5 +505,6 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
 }
 
 export default InvoiceForm
+
 
 

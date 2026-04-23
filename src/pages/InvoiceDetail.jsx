@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useInvoices } from '../context/InvoiceContext'
 import StatusBadge from '../components/StatusBadge'
@@ -40,7 +40,6 @@ function InvoiceDetail() {
   return (
     <>
       <div className="invoice-detail">
-        {/* Go Back */}
         <button
           className="invoice-detail__back"
           onClick={() => navigate('/')}
@@ -51,8 +50,6 @@ function InvoiceDetail() {
           </svg>
           Go back
         </button>
-
-        {/* Status Bar */}
         <div className="invoice-detail__status-bar">
           <div className="invoice-detail__status-left">
             <span className="invoice-detail__status-label">Status</span>
@@ -89,10 +86,7 @@ function InvoiceDetail() {
             )}
           </div>
         </div>
-
-        {/* Invoice Body */}
         <div className="invoice-detail__body">
-          {/* Top Info */}
           <div className="invoice-detail__top">
             <div>
               <h2 className="invoice-detail__id">
@@ -107,8 +101,6 @@ function InvoiceDetail() {
               <span>{invoice.senderAddress.country}</span>
             </address>
           </div>
-
-          {/* Meta Grid */}
           <div className="invoice-detail__meta">
             <div className="invoice-detail__meta-group">
               <p className="invoice-detail__meta-label">Invoice Date</p>
@@ -137,8 +129,6 @@ function InvoiceDetail() {
               <p className="invoice-detail__meta-value">{invoice.clientEmail}</p>
             </div>
           </div>
-
-          {/* Items Table */}
           <div className="invoice-detail__items">
             <div className="invoice-detail__items-header">
               <span>Item Name</span>
@@ -161,8 +151,6 @@ function InvoiceDetail() {
               </div>
             ))}
           </div>
-
-          {/* Amount Due */}
           <div className="invoice-detail__total">
             <span className="invoice-detail__total-label">Amount Due</span>
             <span className="invoice-detail__total-amount">
@@ -170,8 +158,6 @@ function InvoiceDetail() {
             </span>
           </div>
         </div>
-
-        {/* Mobile Footer Actions */}
         <div className="invoice-detail__mobile-footer">
           <button
             className="detail-btn detail-btn--edit"

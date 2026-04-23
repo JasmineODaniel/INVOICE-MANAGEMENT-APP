@@ -1,5 +1,4 @@
-// src/context/InvoiceContext.jsx
-import { createContext, useContext, useEffect, useState } from 'react'
+﻿import { createContext, useContext, useEffect, useState } from 'react'
 import { sampleInvoices } from '../data/sampleInvoices'
 
 const InvoiceContext = createContext()
@@ -60,3 +59,4 @@ export function InvoiceProvider({ children }) {
 export function useInvoices() {
   return useContext(InvoiceContext)
 }
+

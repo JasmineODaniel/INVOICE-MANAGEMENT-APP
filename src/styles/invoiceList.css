@@ -1,4 +1,4 @@
-.invoice-list__header {
+﻿.invoice-list__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -126,7 +126,7 @@
   margin-left: 8px;
 }
 
-/* ---- Empty State ---- */
+
 .empty-state {
   display: flex;
   flex-direction: column;
@@ -159,7 +159,7 @@
   line-height: 22px;
 }
 
-/* ---- Responsive ---- */
+
 @media (max-width: 768px) {
   .invoice-card {
     grid-template-columns: 1fr 1fr;
@@ -181,3 +181,4 @@
     gap: 16px;
   }
 }
+

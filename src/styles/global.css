@@ -1,15 +1,13 @@
-/* Import League Spartan font from Google Fonts */
+﻿
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap');
 
-/* =====================
-   LIGHT MODE (default)
-   ===================== */
+
 :root {
-  /* Brand Colors */
+  
   --purple:        #7C5DFA;
   --purple-light:  #9277FF;
 
-  /* Status Colors */
+  
   --green:         #33D69F;
   --green-bg:      rgba(51, 214, 159, 0.06);
   --orange:        #FF8F00;
@@ -17,46 +15,44 @@
   --grey-status:   #373B53;
   --grey-status-bg:rgba(55, 59, 83, 0.06);
 
-  /* Delete */
+  
   --red:           #EC5757;
   --red-hover:     #FF9797;
 
-  /* Page Background */
+  
   --bg-page:       #F8F8FB;
 
-  /* Card / Surface */
+  
   --bg-card:       #FFFFFF;
 
-  /* Sidebar */
+  
   --bg-sidebar:    #373B53;
 
-  /* Input fields */
+  
   --bg-input:      #FFFFFF;
   --border-input:  #DFE3FA;
   --border-focus:  #7C5DFA;
 
-  /* Text */
+  
   --text-primary:  #0C0E16;
   --text-secondary:#888EB0;
   --text-muted:    #7E88C3;
   --blue-grey:     #7E88C3;
   --text-on-dark:  #FFFFFF;
 
-  /* Item list table row */
+  
   --bg-table-head: #F9FAFE;
 
-  /* Amount due footer */
+  
   --bg-total:      #373B53;
 
-  /* Misc */
+  
   --border-radius-card: 8px;
   --border-radius-btn:  24px;
   --shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.10);
 }
 
-/* =====================
-   DARK MODE
-   ===================== */
+
 [data-theme="dark"] {
   --bg-page:       #141625;
   --bg-card:       #1E2139;
@@ -75,9 +71,7 @@
   --shadow: 0px 10px 10px -10px rgba(0,0,0,0.25);
 }
 
-/* =====================
-   BASE RESET
-   ===================== */
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -92,9 +86,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* =====================
-   TYPOGRAPHY SCALE
-   ===================== */
+
 h1 {
   font-size: 36px;
   font-weight: 700;
@@ -123,9 +115,7 @@ p, label {
   letter-spacing: -0.1px;
 }
 
-/* =====================
-   LAYOUT WRAPPER
-   ===================== */
+
 .app-layout {
   display: flex;
   min-height: 100vh;
@@ -139,9 +129,7 @@ p, label {
   margin: 0 auto;
 }
 
-/* =====================
-   RESPONSIVE BREAKPOINTS
-   ===================== */
+
 @media (max-width: 768px) {
   .app-layout {
     flex-direction: column;
@@ -158,3 +146,4 @@ p, label {
     padding: 24px 16px;
   }
 }
+

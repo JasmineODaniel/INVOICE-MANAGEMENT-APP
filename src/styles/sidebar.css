@@ -1,4 +1,4 @@
-.sidebar {
+﻿.sidebar {
   width: 103px;
   min-height: 100vh;
   background-color: #373B53;
@@ -95,7 +95,7 @@
   object-fit: cover;
 }
 
-/* Tablet - sidebar becomes top bar */
+
 @media (max-width: 768px) {
   .sidebar {
     width: 100%;
@@ -130,3 +130,4 @@
     min-height: 72px;
   }
 } 
+
