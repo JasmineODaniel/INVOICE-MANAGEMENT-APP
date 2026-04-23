@@ -41,7 +41,7 @@ function Sidebar() {
           <img src="ivan.png" alt="User avatar" />
         </div>
       </div>
-    </aside>a
+    </aside>
   )
 }
 
