@@ -18,11 +18,7 @@ function FilterDropdown({ selected, onChange }) {
   }, [])
 
   const handleToggle = (status) => {
-    if (selected.includes(status)) {
-      onChange(selected.filter(s => s !== status))
-    } else {
-      onChange([...selected, status])
-    }
+    onChange(selected === status ? '' : status)
   }
 
   return (
@@ -50,9 +46,9 @@ function FilterDropdown({ selected, onChange }) {
       </button>
 
       {isOpen && (
-        <div className="filter__dropdown" role="listbox" aria-multiselectable="true">
+        <div className="filter__dropdown" role="listbox" aria-multiselectable="false">
           {statuses.map(status => {
-            const isChecked = selected.includes(status)
+            const isChecked = selected === status
             return (
               <label
                 key={status}
