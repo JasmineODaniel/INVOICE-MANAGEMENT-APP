@@ -130,20 +130,26 @@ p, label {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .app-layout {
     flex-direction: column;
   }
 
   .main-content {
-    max-width: 730px;
-    padding: 32px 24px;
+    max-width: 100%;
+    padding: 128px 48px 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .main-content {
+    padding: 104px 24px 24px;
   }
 }
 
 @media (max-width: 480px) {
   .main-content {
-    padding: 24px 16px;
+    padding: 104px 24px 24px;
   }
 }
 
