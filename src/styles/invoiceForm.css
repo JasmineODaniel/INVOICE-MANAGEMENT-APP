@@ -1,4 +1,4 @@
-﻿.form-overlay {
+.form-overlay {
   position: fixed;
   inset: 0;
   z-index: 200;
@@ -163,6 +163,18 @@
   color: var(--text-secondary);
   font-weight: 500;
   opacity: 0.5;
+}
+
+.form-input--prefilled {
+  color: var(--text-secondary);
+  font-weight: 500;
+  opacity: 0.6;
+}
+
+.form-input--prefilled:focus {
+  color: var(--text-primary);
+  font-weight: 700;
+  opacity: 1;
 }
 
 .form-input:focus {
@@ -660,4 +672,3 @@
     gap: 8px;
   }
 }
-
