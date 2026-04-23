@@ -539,18 +539,18 @@
 
 .form-btn--discard:hover,
 .form-btn--cancel:hover {
-  background-color: #DFE3FA;
+  background-color: #F9FAFE;
 }
 
 [data-theme="dark"] .form-btn--discard,
 [data-theme="dark"] .form-btn--cancel {
-  background-color: #252945;
-  color: #DFE3FA;
+  background-color: #F9FAFE;
+  color: #7E88C3;
 }
 
 [data-theme="dark"] .form-btn--discard:hover,
 [data-theme="dark"] .form-btn--cancel:hover {
-  background-color: #1E2139;
+  background-color: #373B53;
 }
 
 .form-btn--draft {
@@ -559,16 +559,16 @@
 }
 
 .form-btn--draft:hover {
-  background-color: #0C0E16;
+  background-color: #626262;
 }
 
 [data-theme="dark"] .form-btn--draft {
-  background-color: #252945;
+  background-color: #373B53;
   color: #DFE3FA;
 }
 
 .form-btn--submit {
-  background-color: #7C5DFA;
+  background-color: #7E88C3;
   color: white;
 }
 
