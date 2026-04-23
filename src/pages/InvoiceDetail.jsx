@@ -139,6 +139,9 @@ function InvoiceDetail() {
             {invoice.items.map((item, index) => (
               <div key={index} className="invoice-detail__item-row">
                 <span className="invoice-detail__item-name">{item.name}</span>
+                <span className="invoice-detail__item-mobile-meta">
+                  {item.qty} x {formatCurrency(item.price)}
+                </span>
                 <span className="invoice-detail__item-qty text-center">
                   {item.qty}
                 </span>
