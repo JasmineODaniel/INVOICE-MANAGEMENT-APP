@@ -1,4 +1,4 @@
-.form-overlay {
+﻿.form-overlay {
   position: fixed;
   inset: 0;
   z-index: 200;
@@ -201,9 +201,7 @@
   font-size: 13px;
 }
 
-/* ========================
-   CALENDAR PICKER
-   ======================== */
+
 .cal-wrapper {
   position: relative;
   width: 100%;
@@ -320,9 +318,7 @@
   opacity: 0.6;
 }
 
-/* ========================
-   PAYMENT TERMS DROPDOWN
-   ======================== */
+
 .terms-wrapper {
   position: relative;
   width: 100%;
@@ -397,9 +393,7 @@
   color: var(--purple);
 }
 
-/* ========================
-   ITEM LIST
-   ======================== */
+
 .form-items {
   display: flex;
   flex-direction: column;
@@ -495,9 +489,7 @@
   background-color: #0C0E16;
 }
 
-/* ========================
-   FOOTER BUTTONS
-   ======================== */
+
 .form-panel__footer {
   display: flex;
   align-items: center;
@@ -576,9 +568,7 @@
   display: none;
 }
 
-/* ========================
-   RESPONSIVE
-   ======================== */
+
 @media (max-width: 768px) {
   .form-panel {
     margin-left: 0;
@@ -642,3 +632,4 @@
     gap: 8px;
   }
 }
+

@@ -1,4 +1,4 @@
-.filter {
+﻿.filter {
   position: relative;
 }
 
@@ -67,7 +67,7 @@
   border-color: #7C5DFA;
 }
 
-/* Hide the real checkbox */
+
 .filter__checkbox {
   position: absolute;
   opacity: 0;
@@ -76,7 +76,7 @@
   pointer-events: none;
 }
 
-/* Custom checkmark box */
+
 .filter__checkmark {
   width: 16px;
   height: 16px;
@@ -90,17 +90,17 @@
   transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
-/* Default unchecked — greyish purple border */
+
 .filter__checkmark {
   border-color: #7E88C3;
 }
 
-/* Hovered unchecked — purple border */
+
 .filter__option:hover .filter__checkmark {
   border-color: #7C5DFA;
 }
 
-/* Checked — full purple background */
+
 .filter__checkmark--checked {
   background-color: #7C5DFA;
   border-color: #7C5DFA;
@@ -136,4 +136,5 @@
   .filter__label--desktop {
     display: none;
   }
+
 

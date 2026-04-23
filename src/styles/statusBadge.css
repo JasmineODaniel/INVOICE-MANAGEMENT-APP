@@ -1,4 +1,4 @@
-.status-badge {
+﻿.status-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -17,7 +17,7 @@
   border-radius: 50%;
 }
 
-/* Paid */
+
 .status-badge--paid {
   background-color: rgba(51, 214, 159, 0.06);
   color: #33D69F;
@@ -26,7 +26,7 @@
   background-color: #33D69F;
 }
 
-/* Pending */
+
 .status-badge--pending {
   background-color: rgba(255, 143, 0, 0.06);
   color: #FF8F00;
@@ -35,7 +35,7 @@
   background-color: #FF8F00;
 }
 
-/* Draft */
+
 .status-badge--draft {
   background-color: rgba(55, 59, 83, 0.06);
   color: #373B53;

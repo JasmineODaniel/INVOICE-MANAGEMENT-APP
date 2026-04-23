@@ -1,4 +1,4 @@
-.invoice-detail {
+﻿.invoice-detail {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -53,7 +53,7 @@
   align-items: center;
 }
 
-/* ---- Buttons ---- */
+
 .detail-btn {
   padding: 16px 24px;
   border-radius: 24px;
@@ -102,7 +102,7 @@
   background-color: #9277FF;
 }
 
-/* ---- Body ---- */
+
 .invoice-detail__body {
   background-color: var(--bg-card);
   border-radius: 8px;
@@ -147,7 +147,7 @@
   line-height: 18px;
 }
 
-/* ---- Meta ---- */
+
 .invoice-detail__meta {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -178,7 +178,7 @@
   margin-top: 8px;
 }
 
-/* ---- Items Table ---- */
+
 .invoice-detail__items {
   background-color: var(--bg-table-head);
   border-radius: 8px 8px 0 0;
@@ -223,7 +223,7 @@
 .text-center { text-align: center; }
 .text-right { text-align: right; }
 
-/* ---- Total ---- */
+
 .invoice-detail__total {
   background-color: #373B53;
   border-radius: 0 0 8px 8px;
@@ -250,7 +250,7 @@
   letter-spacing: -0.5px;
 }
 
-/* ---- Mobile Footer ---- */
+
 .invoice-detail__mobile-footer {
   display: none;
 }
@@ -263,7 +263,7 @@
   padding: 80px 0;
 }
 
-/* ---- Responsive ---- */
+
 @media (max-width: 768px) {
   .invoice-detail__actions {
     display: none;

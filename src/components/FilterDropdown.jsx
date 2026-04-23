@@ -1,12 +1,10 @@
-import { useState, useRef, useEffect } from 'react'
+﻿import { useState, useRef, useEffect } from 'react'
 import '../styles/filterDropdown.css'
 
 function FilterDropdown({ selected, onChange }) {
   const [isOpen, setIsOpen] = useState(false)
   const ref = useRef(null)
   const statuses = ['draft', 'pending', 'paid']
-
-  // Close when clicking outside
   useEffect(() => {
     const handleClick = (e) => {
       if (ref.current && !ref.current.contains(e.target)) {
@@ -88,3 +86,4 @@ function FilterDropdown({ selected, onChange }) {
 }
 
 export default FilterDropdown
+
