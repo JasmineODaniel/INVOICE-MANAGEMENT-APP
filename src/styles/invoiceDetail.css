@@ -207,6 +207,10 @@
   letter-spacing: -0.25px;
 }
 
+.invoice-detail__item-mobile-meta {
+  display: none;
+}
+
 .invoice-detail__item-qty,
 .invoice-detail__item-price {
   font-size: 15px;
@@ -264,7 +268,7 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .invoice-detail__actions {
     display: none;
   }
@@ -316,6 +320,10 @@
     row-gap: 32px;
   }
 
+  .invoice-detail__meta-group:last-child {
+    grid-column: 1 / -1;
+  }
+
   .invoice-detail__items-header {
     display: none;
   }
@@ -323,7 +331,8 @@
   .invoice-detail__item-row {
     grid-template-columns: 1fr auto;
     grid-template-rows: auto auto;
-    gap: 8px;
+    gap: 6px 8px;
+    padding: 18px 24px;
   }
 
   .invoice-detail__item-name {
@@ -331,16 +340,17 @@
     grid-row: 1;
   }
 
-  .invoice-detail__item-qty {
+  .invoice-detail__item-mobile-meta {
+    display: block;
     grid-column: 1;
     grid-row: 2;
-    text-align: left;
+    color: var(--text-muted);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.25px;
   }
 
-  .invoice-detail__item-qty::before {
-    content: 'x ';
-  }
-
+  .invoice-detail__item-qty,
   .invoice-detail__item-price {
     display: none;
   }
