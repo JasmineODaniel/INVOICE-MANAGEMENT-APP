@@ -1,4 +1,44 @@
+# Invoice Management App
+
+A fully functional invoice management application built with React + Vite. Create, view, edit, and delete invoices with a clean and responsive UI that supports both light and dark mode.
+
+## Live Demo
+
+[View Live App](#) <!-- Replace with your Vercel/Netlify URL -->
+
+## GitHub Repository
+
+[View Repository](https://github.com/JasmineODaniel/INVOICE-MANAGEMENT-APP)
+
 ---
+
+## Features
+
+- Create, read, update and delete invoices (full CRUD)
+- Save invoices as draft or send as pending
+- Mark pending invoices as paid
+- Filter invoices by status (draft, pending, paid)
+- Light and dark mode toggle with localStorage persistence
+- Form validation with error states on all required fields
+- Delete confirmation modal with focus trap and ESC key support
+- Custom date picker and payment terms dropdown
+- Fully responsive layout for desktop, tablet and mobile
+- Data persisted in localStorage — survives page refresh
+
+---
+
+## Tech Stack
+
+- **React** — UI framework
+- **Vite** — build tool and dev server
+- **React Router DOM** — client-side routing
+- **CSS Custom Properties** — theming and design tokens
+- **LocalStorage** — data persistence
+- **Google Fonts** — League Spartan typeface
+
+---
+
+## Project Structure
 
 ## Getting Started
 
