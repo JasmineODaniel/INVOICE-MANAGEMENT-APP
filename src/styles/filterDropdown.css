@@ -132,9 +132,13 @@
   border-color: #7C5DFA;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .filter__label--desktop {
     display: none;
   }
-
+  .filter__dropdown {
+    left: 0;
+    transform: none;
+  }
+}
 
