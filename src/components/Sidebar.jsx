@@ -1,4 +1,4 @@
-import { useTheme } from '../context/ThemeContext'
+﻿import { useTheme } from '../context/ThemeContext'
 import '../styles/sidebar.css'
 
 function Sidebar() {
@@ -46,3 +46,4 @@ function Sidebar() {
 }
 
 export default Sidebar
+

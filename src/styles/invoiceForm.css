@@ -78,6 +78,12 @@
 .form-panel__scroll::-webkit-scrollbar-thumb {
   background-color: #DFE3FA;
   border-radius: 4px;
+  min-height: 112px;
+}
+
+.form-panel__scroll::-webkit-scrollbar-thumb:vertical {
+  border-radius: 4px;
+  min-height: 112px;
 }
 
 .form-panel__scroll::-webkit-scrollbar-thumb:hover {
@@ -131,6 +137,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+[data-theme="dark"] .form-label {
+  color: #DFE3FA;
 }
 
 .form-input {

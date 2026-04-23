@@ -1,4 +1,3 @@
-/* ---- Page Header ---- */
 .invoice-list__header {
   display: flex;
   justify-content: space-between;
@@ -25,12 +24,11 @@
   gap: 40px;
 }
 
-/* ---- New Invoice Button ---- */
 .btn-new-invoice {
   display: flex;
   align-items: center;
   gap: 16px;
-  background-color: var(--purple);
+  background-color: #7C5DFA;
   color: white;
   border: none;
   border-radius: 24px;
@@ -44,7 +42,7 @@
 }
 
 .btn-new-invoice:hover {
-  background-color: var(--purple-light);
+  background-color: #9277FF;
 }
 
 .btn-new-invoice__icon {
@@ -58,7 +56,6 @@
   flex-shrink: 0;
 }
 
-/* ---- Invoice Cards ---- */
 .invoice-cards {
   display: flex;
   flex-direction: column;
@@ -67,21 +64,20 @@
 
 .invoice-card {
   background-color: var(--bg-card);
-  border-radius: var(--radius-card);
+  border-radius: 8px;
   padding: 16px 24px;
   display: grid;
-  grid-template-columns: auto 1fr auto auto auto auto;
+  grid-template-columns: 103px 1fr 1fr auto auto auto;
   align-items: center;
   gap: 16px;
   cursor: pointer;
   border: 1px solid transparent;
   box-shadow: var(--shadow);
   transition: border-color 0.2s;
-  text-decoration: none;
 }
 
 .invoice-card:hover {
-  border-color: var(--purple);
+  border-color: #7C5DFA;
 }
 
 .invoice-card__id {
@@ -92,12 +88,22 @@
 }
 
 .invoice-card__hash {
-  color: var(--blue-grey);
+  color: #7E88C3;
 }
 
 .invoice-card__due {
   font-size: 13px;
   color: var(--text-secondary);
+  letter-spacing: -0.1px;
+}
+
+.invoice-card__due-label {
+  font-weight: 500;
+}
+
+.invoice-card__due-date {
+  color: var(--text-muted);
+  font-weight: 500;
 }
 
 .invoice-card__client {
@@ -111,10 +117,13 @@
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.8px;
+  min-width: 100px;
+  text-align: right;
 }
 
 .invoice-card__arrow {
-  color: var(--purple);
+  color: #7C5DFA;
+  margin-left: 8px;
 }
 
 /* ---- Empty State ---- */
@@ -129,6 +138,11 @@
 
 .empty-state__image {
   margin-bottom: 40px;
+  max-width: 242px;
+}
+
+.empty-state__image img {
+  width: 100%;
 }
 
 .empty-state__title {
@@ -148,15 +162,16 @@
 /* ---- Responsive ---- */
 @media (max-width: 768px) {
   .invoice-card {
-    grid-template-columns: auto auto; 
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto;
     gap: 8px;
+    padding: 24px;
   }
 
   .invoice-card__id { grid-column: 1; grid-row: 1; }
   .invoice-card__client { grid-column: 2; grid-row: 1; text-align: right; }
   .invoice-card__due { grid-column: 1; grid-row: 2; }
-  .invoice-card__amount { grid-column: 1; grid-row: 3; }
+  .invoice-card__amount { grid-column: 1; grid-row: 3; text-align: left; min-width: unset; }
   .invoice-card__arrow { grid-column: 2; grid-row: 3; justify-self: end; }
 }
 

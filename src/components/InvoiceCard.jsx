@@ -18,7 +18,8 @@ function InvoiceCard({ invoice }) {
         <span className="invoice-card__hash">#</span>{invoice.id}
       </span>
       <span className="invoice-card__due">
-        Due {formatDate(invoice.paymentDue)}
+        <span className="invoice-card__due-label">Due </span>
+        <span className="invoice-card__due-date">{formatDate(invoice.paymentDue)}</span>
       </span>
       <span className="invoice-card__client">{invoice.clientName}</span>
       <span className="invoice-card__amount">
