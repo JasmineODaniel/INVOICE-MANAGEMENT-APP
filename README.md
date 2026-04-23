@@ -170,6 +170,4 @@ Built to match the Frontend Mentor Invoice App Figma design system including:
 
 **Jasmine O'Daniel**
 
----
 
-## Project Structure
