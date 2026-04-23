@@ -16,7 +16,7 @@
   width: 100%;
   max-width: 616px;
   height: 100vh;
-  background-color: var(--bg-card);
+  background-color: var(--bg-page);
   display: flex;
   flex-direction: column;
   margin-left: 103px;
