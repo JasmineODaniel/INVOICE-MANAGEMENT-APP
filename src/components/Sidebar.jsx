@@ -38,10 +38,10 @@ function Sidebar() {
         <div className="sidebar__divider" />
 
         <div className="sidebar__avatar">
-          <img src="jjgirl.jpg" alt="User avatar" />
+          <img src="ivan.png" alt="User avatar" />
         </div>
       </div>
-    </aside>
+    </aside>a
   )
 }
 
