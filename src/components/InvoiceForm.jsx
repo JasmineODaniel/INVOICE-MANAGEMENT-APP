@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useInvoices } from '../context/InvoiceContext'
 import { generateId, calculatePaymentDue } from '../utils/generateId'
 import '../styles/invoiceForm.css'
@@ -207,6 +207,7 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
   })
 
   const [errors, setErrors] = useState({})
+  const [touched, setTouched] = useState({})
 
   useEffect(() => {
     const handleKey = (e) => { if (e.key === 'Escape') onClose() }
@@ -222,6 +223,7 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
   const handleChange = (field, value) => {
     setForm(prev => ({ ...prev, [field]: value }))
     if (errors[field]) setErrors(prev => ({ ...prev, [field]: '' }))
+    setTouched(prev => ({ ...prev, [field]: true }))
   }
 
   const handleItemChange = (index, field, value) => {
@@ -312,6 +314,8 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
     onClose()
   }
 
+  const prefilled = (field) => !touched[field] ? 'form-input--prefilled' : ''
+
   return (
     <div className="form-overlay">
       <div className="form-overlay__backdrop" onClick={onClose} />
@@ -338,20 +342,20 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
                   Street Address
                   {errors.senderStreet && <span className="form-error">{errors.senderStreet}</span>}
                 </label>
-                <input id="senderStreet" className={`form-input ${errors.senderStreet ? 'form-input--error' : ''}`} value={form.senderStreet} onChange={e => handleChange('senderStreet', e.target.value)} />
+                <input id="senderStreet" className={`form-input ${errors.senderStreet ? 'form-input--error' : prefilled('senderStreet')}`} value={form.senderStreet} onChange={e => handleChange('senderStreet', e.target.value)} />
               </div>
               <div className="form-row">
                 <div className="form-group">
                   <label className="form-label" htmlFor="senderCity">City {errors.senderCity && <span className="form-error">{errors.senderCity}</span>}</label>
-                  <input id="senderCity" className={`form-input ${errors.senderCity ? 'form-input--error' : ''}`} value={form.senderCity} onChange={e => handleChange('senderCity', e.target.value)} />
+                  <input id="senderCity" className={`form-input ${errors.senderCity ? 'form-input--error' : prefilled('senderCity')}`} value={form.senderCity} onChange={e => handleChange('senderCity', e.target.value)} />
                 </div>
                 <div className="form-group">
                   <label className="form-label" htmlFor="senderPostCode">Post Code {errors.senderPostCode && <span className="form-error">{errors.senderPostCode}</span>}</label>
-                  <input id="senderPostCode" className={`form-input ${errors.senderPostCode ? 'form-input--error' : ''}`} value={form.senderPostCode} onChange={e => handleChange('senderPostCode', e.target.value)} />
+                  <input id="senderPostCode" className={`form-input ${errors.senderPostCode ? 'form-input--error' : prefilled('senderPostCode')}`} value={form.senderPostCode} onChange={e => handleChange('senderPostCode', e.target.value)} />
                 </div>
                 <div className="form-group">
                   <label className="form-label" htmlFor="senderCountry">Country {errors.senderCountry && <span className="form-error">{errors.senderCountry}</span>}</label>
-                  <input id="senderCountry" className={`form-input ${errors.senderCountry ? 'form-input--error' : ''}`} value={form.senderCountry} onChange={e => handleChange('senderCountry', e.target.value)} />
+                  <input id="senderCountry" className={`form-input ${errors.senderCountry ? 'form-input--error' : prefilled('senderCountry')}`} value={form.senderCountry} onChange={e => handleChange('senderCountry', e.target.value)} />
                 </div>
               </div>
             </fieldset>
@@ -359,28 +363,28 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
               <legend className="form-section__legend">Bill To</legend>
               <div className="form-group form-group--full">
                 <label className="form-label" htmlFor="clientName">Client's Name {errors.clientName && <span className="form-error">{errors.clientName}</span>}</label>
-                <input id="clientName" className={`form-input ${errors.clientName ? 'form-input--error' : ''}`} value={form.clientName} onChange={e => handleChange('clientName', e.target.value)} placeholder="e.g. Alex Grim" />
+                <input id="clientName" className={`form-input ${errors.clientName ? 'form-input--error' : prefilled('clientName')}`} value={form.clientName} onChange={e => handleChange('clientName', e.target.value)} placeholder="e.g. Alex Grim" />
               </div>
               <div className="form-group form-group--full">
                 <label className="form-label" htmlFor="clientEmail">Client's Email {errors.clientEmail && <span className="form-error">{errors.clientEmail}</span>}</label>
-                <input id="clientEmail" type="email" className={`form-input ${errors.clientEmail ? 'form-input--error' : ''}`} value={form.clientEmail} onChange={e => handleChange('clientEmail', e.target.value)} placeholder="e.g. alexgrim@mail.com" />
+                <input id="clientEmail" type="email" className={`form-input ${errors.clientEmail ? 'form-input--error' : prefilled('clientEmail')}`} value={form.clientEmail} onChange={e => handleChange('clientEmail', e.target.value)} placeholder="e.g. alexgrim@mail.com" />
               </div>
               <div className="form-group form-group--full">
                 <label className="form-label" htmlFor="clientStreet">Street Address {errors.clientStreet && <span className="form-error">{errors.clientStreet}</span>}</label>
-                <input id="clientStreet" className={`form-input ${errors.clientStreet ? 'form-input--error' : ''}`} value={form.clientStreet} onChange={e => handleChange('clientStreet', e.target.value)} placeholder="e.g. 84 Church Way" />
+                <input id="clientStreet" className={`form-input ${errors.clientStreet ? 'form-input--error' : prefilled('clientStreet')}`} value={form.clientStreet} onChange={e => handleChange('clientStreet', e.target.value)} placeholder="e.g. 84 Church Way" />
               </div>
               <div className="form-row">
                 <div className="form-group">
                   <label className="form-label" htmlFor="clientCity">City {errors.clientCity && <span className="form-error">{errors.clientCity}</span>}</label>
-                  <input id="clientCity" className={`form-input ${errors.clientCity ? 'form-input--error' : ''}`} value={form.clientCity} onChange={e => handleChange('clientCity', e.target.value)} placeholder="e.g. Bradford" />
+                  <input id="clientCity" className={`form-input ${errors.clientCity ? 'form-input--error' : prefilled('clientCity')}`} value={form.clientCity} onChange={e => handleChange('clientCity', e.target.value)} placeholder="e.g. Bradford" />
                 </div>
                 <div className="form-group">
                   <label className="form-label" htmlFor="clientPostCode">Post Code {errors.clientPostCode && <span className="form-error">{errors.clientPostCode}</span>}</label>
-                  <input id="clientPostCode" className={`form-input ${errors.clientPostCode ? 'form-input--error' : ''}`} value={form.clientPostCode} onChange={e => handleChange('clientPostCode', e.target.value)} placeholder="e.g. BD1 9PB" />
+                  <input id="clientPostCode" className={`form-input ${errors.clientPostCode ? 'form-input--error' : prefilled('clientPostCode')}`} value={form.clientPostCode} onChange={e => handleChange('clientPostCode', e.target.value)} placeholder="e.g. BD1 9PB" />
                 </div>
                 <div className="form-group">
                   <label className="form-label" htmlFor="clientCountry">Country {errors.clientCountry && <span className="form-error">{errors.clientCountry}</span>}</label>
-                  <input id="clientCountry" className={`form-input ${errors.clientCountry ? 'form-input--error' : ''}`} value={form.clientCountry} onChange={e => handleChange('clientCountry', e.target.value)} placeholder="e.g. United Kingdom" />
+                  <input id="clientCountry" className={`form-input ${errors.clientCountry ? 'form-input--error' : prefilled('clientCountry')}`} value={form.clientCountry} onChange={e => handleChange('clientCountry', e.target.value)} placeholder="e.g. United Kingdom" />
                 </div>
               </div>
             </fieldset>
@@ -409,7 +413,7 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
                 </label>
                 <input
                   id="description"
-                  className={`form-input ${errors.description ? 'form-input--error' : ''}`}
+                  className={`form-input ${errors.description ? 'form-input--error' : prefilled('description')}`}
                   value={form.description}
                   onChange={e => handleChange('description', e.target.value)}
                   placeholder="e.g. Graphic Design"
@@ -505,6 +509,3 @@ function InvoiceForm({ onClose, invoiceToEdit }) {
 }
 
 export default InvoiceForm
-
-
-
