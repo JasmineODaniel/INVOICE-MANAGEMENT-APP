@@ -1,3 +1,63 @@
+# Invoice Management App
+
+A fully functional invoice management application built with React + Vite. Create, view, edit, and delete invoices with a clean and responsive UI that supports both light and dark mode.
+
+---
+
+## Features
+
+- Create, read, update and delete invoices (full CRUD)
+- Save invoices as draft or send as pending
+- Mark pending invoices as paid
+- Filter invoices by status (draft, pending, paid)
+- Light and dark mode toggle with localStorage persistence
+- Form validation with error states on all required fields
+- Delete confirmation modal with focus trap and ESC key support
+- Custom date picker and payment terms dropdown
+- Fully responsive layout for desktop, tablet and mobile
+- Data persisted in localStorage — survives page refresh
+
+---
+
+## Tech Stack
+
+- **React** — UI framework
+- **Vite** — build tool and dev server
+- **React Router DOM** — client-side routing
+- **CSS Custom Properties** — theming and design tokens
+- **LocalStorage** — data persistence
+- **Google Fonts** — League Spartan typeface
+src/
+├── components/
+│   ├── Sidebar.jsx          # Navigation sidebar with theme toggle
+│   ├── InvoiceCard.jsx      # Single invoice list item
+│   ├── StatusBadge.jsx      # Paid / Pending / Draft badge
+│   ├── InvoiceForm.jsx      # Create and edit invoice form
+│   ├── DeleteModal.jsx      # Delete confirmation modal
+│   ├── FilterDropdown.jsx   # Status filter with checkboxes
+│   └── EmptyState.jsx       # Empty list illustration
+├── pages/
+│   ├── InvoiceList.jsx      # Home page — invoice list
+│   └── InvoiceDetail.jsx    # Invoice detail view
+├── context/
+│   ├── ThemeContext.jsx     # Light/dark mode global state
+│   └── InvoiceContext.jsx   # Invoice CRUD global state
+├── styles/
+│   ├── global.css           # CSS variables and base styles
+│   ├── sidebar.css
+│   ├── invoiceList.css
+│   ├── invoiceDetail.css
+│   ├── invoiceForm.css
+│   ├── statusBadge.css
+│   ├── deleteModal.css
+│   └── filterDropdown.css
+├── utils/
+│   └── generateId.js        # ID generator, date and currency formatters
+├── data/
+│   └── sampleInvoices.js    # 7 seed invoices for first load
+├── App.jsx                  # Root component with routing
+└── main.jsx                 # React entry point
+
 ---
 
 ## Getting Started
@@ -108,3 +168,7 @@ Built to match the Frontend Mentor Invoice App Figma design system including:
 ## Author
 
 **Jasmine O'Daniel**
+
+---
+
+## Project Structure
