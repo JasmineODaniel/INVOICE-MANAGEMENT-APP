@@ -3,17 +3,25 @@ import { createContext, useContext, useEffect, useState } from 'react'
 import { sampleInvoices } from '../data/sampleInvoices'
 
 const InvoiceContext = createContext()
+const INVOICES_STORAGE_KEY = 'invoices'
+const INVOICES_VERSION_KEY = 'invoices_version'
+const DESIGN_DATA_VERSION = 'design-2021-v1'
 
 export function InvoiceProvider({ children }) {
   const [invoices, setInvoices] = useState(() => {
-    // Load from localStorage if it exists, otherwise use sample data
-    const saved = localStorage.getItem('invoices')
-    return saved ? JSON.parse(saved) : sampleInvoices
+    const savedVersion = localStorage.getItem(INVOICES_VERSION_KEY)
+    const saved = localStorage.getItem(INVOICES_STORAGE_KEY)
+    if (savedVersion === DESIGN_DATA_VERSION && saved) {
+      return JSON.parse(saved)
+    }
+    localStorage.setItem(INVOICES_VERSION_KEY, DESIGN_DATA_VERSION)
+    localStorage.setItem(INVOICES_STORAGE_KEY, JSON.stringify(sampleInvoices))
+    return sampleInvoices
   })
 
-  // Save to localStorage every time invoices change
   useEffect(() => {
-    localStorage.setItem('invoices', JSON.stringify(invoices))
+    localStorage.setItem(INVOICES_VERSION_KEY, DESIGN_DATA_VERSION)
+    localStorage.setItem(INVOICES_STORAGE_KEY, JSON.stringify(invoices))
   }, [invoices])
 
   const addInvoice = (invoice) => {

@@ -8,12 +8,12 @@ import '../styles/invoiceList.css'
 
 function InvoiceList() {
   const { invoices } = useInvoices()
-  const [filters, setFilters] = useState([])
+  const [filter, setFilter] = useState('')
   const [showForm, setShowForm] = useState(false)
 
-  const filtered = filters.length === 0
+  const filtered = !filter
     ? invoices
-    : invoices.filter(inv => filters.includes(inv.status))
+    : invoices.filter(inv => inv.status === filter)
 
   return (
     <>
@@ -27,7 +27,7 @@ function InvoiceList() {
           </p>
         </div>
         <div className="invoice-list__controls">
-          <FilterDropdown selected={filters} onChange={setFilters} />
+          <FilterDropdown selected={filter} onChange={setFilter} />
           <button
             className="btn-new-invoice"
             onClick={() => setShowForm(true)}
